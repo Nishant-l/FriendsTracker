@@ -9,7 +9,7 @@ export const ProfileInfo = ({
                 <div className='profile-pic-wrap'>
                 <img
                     className='profile-pic'
-                    src={process.env.PUBLIC_URL + profilePic} 
+                    src={profilePic} 
                     alt='nishant'
                 />
                 </div>
