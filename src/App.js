@@ -1,11 +1,12 @@
-import './App.css';
+import style from './App.module.css';
 import {ProfileInfo} from './ProfileInfo';
 import {WelcomeMessage} from './WelcomeMessage'
 import { myProfileData,fraindsData } from './data';
 export  const App = () =>  {
   return(
     <>
-    <div className="content-container">
+    <h1>Frainds tracker</h1>
+    <div className={style.contentContainer}>
       <WelcomeMessage name={myProfileData.name}/>
       <ProfileInfo person={myProfileData}/>
       {fraindsData.map((friend)=>{

@@ -2,16 +2,12 @@ h3 {
     border-bottom: 1px dotted #ccc ;
 }
 
-.content-heading {
-    text-transform: uppercase;
-}
-
-.profile-pic-container{
+.profilePicContainer{
     display: flex;
     justify-content: center;
 }
 
-.profile-pic-wrap{
+.profilePicWrap{
     width: 256px;
     height: 256px;
     border-radius: 50%;
@@ -21,6 +17,11 @@ h3 {
     vertical-align: middle;
 }
 
-.profile-pic{
+.profilePic{
     width: 100%;
+}
+
+.detailedHeading{
+    border-bottom: 1px dotted #ccc;
+
 }

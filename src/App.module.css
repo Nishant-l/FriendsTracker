@@ -1,10 +1,10 @@
-.content-container{
+.contentContainer{
   margin: auto;
   max-width: 700px;
   /* background-color: yellow; */
 }
 
-.border-container {
+.borderContainer {
   border: 1px solid #ccc;
   border-radius: 8px;
   margin: auto;
