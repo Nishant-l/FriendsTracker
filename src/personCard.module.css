@@ -1,0 +1,35 @@
+.profilePicContainer{
+    align-items: center;
+    flex: 1;
+    display: flex;
+}
+
+.profilePicWrap{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: black;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.profilePic{
+    width: 100%;
+}
+
+.detailedHeading{
+    border-bottom: 1px dotted #ccc;
+
+}
+
+.card{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    padding: 8px;
+}
+
+.cardDetails{
+    flex: 1;
+}

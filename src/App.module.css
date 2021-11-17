@@ -11,3 +11,20 @@
   max-width: 700px;
   padding: 16px;
 }
+
+.peopleList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.peopleListItem{
+  box-sizing: border-box;
+  padding: 8px;
+  width: 50%;
+}
+
+.contentHeading{
+  border-bottom: 1px solid black;
+  margin: 64px 0;
+  text-transform: uppercase;
+}
