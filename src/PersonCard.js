@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 
 const PersonCard = ({
     person:{id,profilePic,name,Age},
-    isBestFriend,
     SetBestFriend,
 }) =>{
     return(
         <div 
             onClick = {()=> {SetBestFriend(id)}}
-            className={isBestFriend ? style.cardFav : style.card}
+            className={style.card}
         >
             <div className={style.profilePicContainer}>
                 <div className={style.profilePicWrap}>
@@ -37,7 +36,6 @@ PersonCard.propTypes = {
         name:PropTypes.string.isRequired,
         Age:PropTypes.number.isRequired
     }).isRequired,
-    isBestFriend:PropTypes.bool.isRequired,
     SetBestFriend:PropTypes.func.isRequired
 }
 

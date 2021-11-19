@@ -2,7 +2,7 @@ import style from './App.module.css';
 import {ProfileInfo} from './ProfileInfo';
 import {WelcomeMessage} from './WelcomeMessage'
 import { myProfileData,fraindsData } from './data';
-import {PersonCard} from './PersonCard';
+import { PeopleList } from './PeopleList';
 import { useState } from 'react';
 
 export  const App = () =>  {
@@ -21,20 +21,10 @@ export  const App = () =>  {
       <WelcomeMessage name={myProfileData.name}/>
       <h2 className={style.contentHeading}>My Profile</h2>
       <ProfileInfo person={myProfileData}/>
+      <h2 className={style.contentHeading}>My Best Friends</h2>
+      <PeopleList people={fevList.map((id)=>fraindsData.find(friend => friend.id === id))} onClickPerson={SetBestFriend}/>
       <h2 className={style.contentHeading}>My Friends</h2>
-      <h3>{`Noumber of BestFriends ${fevList.length}`}</h3>
-      <div className={style.peopleList}>
-        {fraindsData.map((friend)=>
-          (
-            <div className={style.peopleListItem} key={friend.id}>
-            <PersonCard person={friend}
-            isBestFriend={fevList.includes(friend.id)}
-            SetBestFriend={SetBestFriend}
-            />
-            </div>
-          )
-        )}
-      </div>
+      <PeopleList people={fraindsData.filter((friend)=>!fevList.includes(friend.id))} onClickPerson={SetBestFriend}/>
     </div>
     </>
   )
