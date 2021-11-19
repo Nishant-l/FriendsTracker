@@ -26,10 +26,20 @@
 .card{
     border: 1px solid #ccc;
     border-radius: 8px;
+    cursor: pointer;
     display: flex;
     padding: 8px;
 }
 
 .cardDetails{
     flex: 1;
+}
+
+.cardFav{
+    background-color: lightgreen;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    padding: 8px;
+    cursor: pointer;
 }

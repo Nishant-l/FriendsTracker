@@ -2,10 +2,15 @@ import style from './personCard.module.css';
 import PropTypes from 'prop-types';
 
 const PersonCard = ({
-    person:{profilePic,name,Age}
+    person:{id,profilePic,name,Age},
+    isBestFriend,
+    SetBestFriend,
 }) =>{
     return(
-        <div className={style.card}>
+        <div 
+            onClick = {()=> {SetBestFriend(id)}}
+            className={isBestFriend ? style.cardFav : style.card}
+        >
             <div className={style.profilePicContainer}>
                 <div className={style.profilePicWrap}>
                     <img
@@ -27,10 +32,13 @@ const PersonCard = ({
 
 PersonCard.propTypes = {
     person:PropTypes.shape({
+        id:PropTypes.number.isRequired,
         profilePic:PropTypes.string.isRequired,
         name:PropTypes.string.isRequired,
         Age:PropTypes.number.isRequired
-    }).isRequired
+    }).isRequired,
+    isBestFriend:PropTypes.bool.isRequired,
+    SetBestFriend:PropTypes.func.isRequired
 }
 
 export {PersonCard}

@@ -25,7 +25,7 @@ const ProfileInfo = ({
           <p>{birthDay}</p>
           <h3 className={style.detailedHeading}>Interests</h3>
           {Interests.map((i)=>{
-            return(<li>{i}</li>);
+            return(<li key={i}>{i}</li>);
           })}
         
         </>

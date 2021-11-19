@@ -8,6 +8,7 @@ export const myProfileData = {
   }
 
   export const fraindsData = [{
+        id:1,
         profilePic:'https://randomuser.me/api/portraits/men/52.jpg',
         name:'Curtis Rogers',
         Age: 33,
@@ -16,6 +17,7 @@ export const myProfileData = {
         Interests : ['Programming','Listining to music','Exploring technology']
     },
     {
+        id:2,
         profilePic:'https://randomuser.me/api/portraits/women/13.jpg',
         name:'Bertha Richardson',
         Age: 33,
@@ -24,6 +26,7 @@ export const myProfileData = {
         Interests : ['Programming','Listining to music','Exploring technology']
     },
     {
+        id:3,
         profilePic:'https://randomuser.me/api/portraits/men/73.jpg',
         name:'Tim Gray',
         Age: 33,
@@ -32,6 +35,7 @@ export const myProfileData = {
         Interests : ['Programming','Listining to music','Exploring technology']
     },
     {
+        id:4,
         profilePic:'https://randomuser.me/api/portraits/men/51.jpg',
         name:'Ralph Ryan',
         Age: 33,
