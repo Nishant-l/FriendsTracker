@@ -6,8 +6,9 @@ import { PeopleList } from './PeopleList';
 import { useState } from 'react';
 
 export  const App = () =>  {
-  const [fevList,SetFevList] = useState(JSON.parse(localStorage.getItem('fevlist')));
-  
+  const existingFevList = JSON.parse(localStorage.getItem('fevlist'));
+  const [fevList,SetFevList] = useState(existingFevList || []);
+
   const SetBestFriend = (id) =>{
     let newFevList = fevList.includes(id) ? fevList.filter(i => i!==id) : fevList.concat(id);
     SetFevList(newFevList); 
