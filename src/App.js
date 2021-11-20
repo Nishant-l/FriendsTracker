@@ -7,16 +7,11 @@ import { useState } from 'react';
 
 export  const App = () =>  {
   const [fevList,SetFevList] = useState(JSON.parse(localStorage.getItem('fevlist')));
+  
   const SetBestFriend = (id) =>{
-    if(fevList.includes(id)){
-      const newFevList = fevList.filter(i => i!==id);
-      SetFevList(newFevList); 
-      localStorage.setItem('fevlist',JSON.stringify(newFevList));
-    }else{
-      const newFevList = fevList.concat(id);
-      SetFevList(newFevList);
-      localStorage.setItem('fevlist',JSON.stringify(newFevList));
-    }
+    let newFevList = fevList.includes(id) ? fevList.filter(i => i!==id) : fevList.concat(id);
+    SetFevList(newFevList); 
+    localStorage.setItem('fevlist',JSON.stringify(newFevList));
   }
   return(
     <>
