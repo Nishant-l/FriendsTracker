@@ -6,12 +6,16 @@ import { PeopleList } from './PeopleList';
 import { useState } from 'react';
 
 export  const App = () =>  {
-  const [fevList,SetFevList] = useState([]);
+  const [fevList,SetFevList] = useState(JSON.parse(localStorage.getItem('fevlist')));
   const SetBestFriend = (id) =>{
     if(fevList.includes(id)){
-      SetFevList(fevList.filter(i => i!==id)) 
+      const newFevList = fevList.filter(i => i!==id);
+      SetFevList(newFevList); 
+      localStorage.setItem('fevlist',JSON.stringify(newFevList));
     }else{
-      SetFevList(fevList.concat(id));
+      const newFevList = fevList.concat(id);
+      SetFevList(newFevList);
+      localStorage.setItem('fevlist',JSON.stringify(newFevList));
     }
   }
   return(

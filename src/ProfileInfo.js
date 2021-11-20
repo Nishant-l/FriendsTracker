@@ -1,5 +1,6 @@
 import style from './ProfileInfo.module.css'
 import PropTypes from 'prop-types';
+import { Tags } from './Tags';
 
 const ProfileInfo = ({
     person: {profilePic,name,Age,Bio,birthDay,Interests}
@@ -25,7 +26,7 @@ const ProfileInfo = ({
           <p>{birthDay}</p>
           <h3 className={style.detailedHeading}>Interests</h3>
           {Interests.map((i)=>{
-            return(<li key={i}>{i}</li>);
+            return(<Tags key={i} text={i}/>);
           })}
         
         </>
