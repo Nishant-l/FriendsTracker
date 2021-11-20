@@ -1,0 +1,13 @@
+.borderContainer {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: auto;
+    max-width: 700px;
+    padding: 16px;
+  }
+  
+  .contentHeading{
+    border-bottom: 1px solid black;
+    margin: 64px 0;
+    text-transform: uppercase;
+  }
