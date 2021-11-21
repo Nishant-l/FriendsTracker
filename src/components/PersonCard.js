@@ -4,27 +4,38 @@ import PropTypes from 'prop-types';
 const PersonCard = ({
     person:{id,profilePic,name,Age},
     SetBestFriend,
+    onToggleFavorite
 }) =>{
     return(
         <div 
             onClick = {()=> {SetBestFriend(id)}}
             className={style.card}
         >
-            <div className={style.profilePicContainer}>
-                <div className={style.profilePicWrap}>
-                    <img
-                    className={style.profilePic}
-                    src={profilePic}
-                    alt=''
-                    />
+            <div className={style.detailsContainer}>
+                <div className={style.profilePicContainer}>
+                    <div className={style.profilePicWrap}>
+                        <img
+                        className={style.profilePic}
+                        src={profilePic}
+                        alt=''
+                        />
+                    </div>
+                </div>
+                <div className={style.cardDetails}>
+                    <h3>Name</h3>
+                    <p>{name}</p>
+                    <h3>Age</h3>
+                    <p>{Age}</p>
                 </div>
             </div>
-            <div className={style.cardDetails}>
-                <h3>Name</h3>
-                <p>{name}</p>
-                <h3>Age</h3>
-                <p>{Age}</p>
-            </div>
+           
+            <button
+            className={style.actionButton}
+            onClick={(e)=>{onToggleFavorite(id)
+                e.stopPropagation()
+            }}
+            >Toggle Favorate</button>
+           
         </div>
     )
 }

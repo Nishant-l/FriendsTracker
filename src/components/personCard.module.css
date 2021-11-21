@@ -29,6 +29,8 @@
     cursor: pointer;
     display: flex;
     padding: 8px;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .cardDetails{
@@ -42,4 +44,12 @@
     display: flex;
     padding: 8px;
     cursor: pointer;
+}
+
+.actionButton{
+    width: 100%;
+}
+
+.detailsContainer{
+    display: flex;
 }
