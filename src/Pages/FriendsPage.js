@@ -1,22 +1,17 @@
 import {WelcomeMessage} from '../components/WelcomeMessage'
 import { myProfileData,fraindsData } from '../data';
 import { PeopleList } from '../components/PeopleList';
-import { useState } from 'react';
 import style from './friendPage.module.css'
 import {useNavigate} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const FriendsPage = () => {
+const FriendsPage = ({
+    fevList,
+    SetBestFriend
+}) => {
     
     const navigate = useNavigate();
-    const existingFevList = JSON.parse(localStorage.getItem('fevlist'));
-    const [fevList,SetFevList] = useState(existingFevList || []);
-
-    const SetBestFriend = (id) =>{
-        let newFevList = fevList.includes(id) ? fevList.filter(i => i!==id) : fevList.concat(id);
-        SetFevList(newFevList); 
-        localStorage.setItem('fevlist',JSON.stringify(newFevList));
-    }
-
+    
     const goToPersonDetail = (id) => {
         navigate(`/friendDetails/${id}`);
     }
@@ -42,6 +37,11 @@ const FriendsPage = () => {
         </>
     )
 
+}
+
+FriendsPage.propTypes = {
+    fevList: PropTypes.arrayOf(PropTypes.number),
+    SetBestFriend: PropTypes.func.isRequired
 }
 
 export {FriendsPage}

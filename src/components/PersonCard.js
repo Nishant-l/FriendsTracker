@@ -48,7 +48,9 @@ PersonCard.propTypes = {
         name:PropTypes.string.isRequired,
         Age:PropTypes.number.isRequired
     }).isRequired,
-    SetBestFriend:PropTypes.func.isRequired
+    SetBestFriend:PropTypes.func.isRequired,
+    actionName: PropTypes.string,
+    onAction: PropTypes.func
 }
 
 export {PersonCard}

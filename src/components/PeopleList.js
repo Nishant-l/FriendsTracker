@@ -35,6 +35,8 @@ PeopleList.propTypes = {
         })
     ).isRequired,
     onClickPerson: PropTypes.func.isRequired,
+    actionName: PropTypes.string,
+    onToggleFavorite: PropTypes.func
 }
 
 export {PeopleList}

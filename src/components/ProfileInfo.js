@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Tags } from './Tags';
 
 const ProfileInfo = ({
-    person: {profilePic,name,Age,Bio,birthDay,Interests}
+    person: {profilePic,name,Age,Bio,birthDay,Interests},
+    toggleText,
+    togglefriend,
 }) => {
       return (
         <>
@@ -28,7 +30,7 @@ const ProfileInfo = ({
           {Interests.map((i)=>{
             return(<Tags key={i} text={i}/>);
           })}
-        
+          {toggleText && togglefriend && <button onClick={togglefriend} className={style.indentButton}>{toggleText}</button>}
         </>
       );
 }
@@ -41,7 +43,9 @@ ProfileInfo.propTypes = {
     Bio:PropTypes.string.isRequired,
     birthDay:PropTypes.string.isRequired,
     Interests:PropTypes.arrayOf(PropTypes.string).isRequired,
-   }).isRequired
+   }).isRequired,
+   toggleText: PropTypes.string,
+   togglefriend: PropTypes.func
 }
 
 export {ProfileInfo}

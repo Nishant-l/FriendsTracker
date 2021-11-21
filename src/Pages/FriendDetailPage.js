@@ -1,13 +1,22 @@
 import {ProfileInfo} from '../components/ProfileInfo';
 import {fraindsData} from '../data';
 import { Link, useParams } from 'react-router-dom';
-const FriendDetailPage = () => {
+import PropTypes from 'prop-types';
+
+const FriendDetailPage = ({
+    fevList=[],
+    SetBestFriend
+}) => {
     const {id} = useParams();
     const selectedFriend = fraindsData.find(f => f.id.toString() === id);
-    console.log(selectedFriend)
+    const isBestFriend = fevList.includes(selectedFriend.id);
     return(
         selectedFriend?
-       <ProfileInfo person={selectedFriend}/>
+        <ProfileInfo 
+            person={selectedFriend} 
+            togglefriend={()=>SetBestFriend(selectedFriend.id)} 
+            toggleText={isBestFriend?'Remove from Favorites':'Add to Favorites'}
+        />
        :(<>
             <h1>404 Not found, Ooops!!! </h1>
             <Link to="/">
@@ -15,6 +24,11 @@ const FriendDetailPage = () => {
             </Link>
         </>)
     )
+}
+
+FriendDetailPage.propTypes = {
+    fevList: PropTypes.arrayOf(PropTypes.number),
+    SetBestFriend: PropTypes.func.isRequired
 }
 
 export {FriendDetailPage}
