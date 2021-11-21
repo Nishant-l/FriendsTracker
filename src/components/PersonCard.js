@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 const PersonCard = ({
     person:{id,profilePic,name,Age},
     SetBestFriend,
-    onToggleFavorite
+    actionName,
+    onAction
 }) =>{
     return(
         <div 
@@ -29,12 +30,12 @@ const PersonCard = ({
                 </div>
             </div>
            
-            <button
+            {onAction && actionName&& <button
             className={style.actionButton}
-            onClick={(e)=>{onToggleFavorite(id)
+            onClick={(e)=>{onAction(id)
                 e.stopPropagation()
             }}
-            >Toggle Favorate</button>
+            >{actionName}</button>}
            
         </div>
     )

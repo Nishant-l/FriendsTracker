@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 const PeopleList = ({
     people,
     onClickPerson,
+    actionName,
     onToggleFavorite
 }) =>{
     return(
@@ -13,7 +14,8 @@ const PeopleList = ({
             <div className={style.peopleListItem} key={person.id}>
             <PersonCard person={person}
             SetBestFriend={onClickPerson}
-            onToggleFavorite={onToggleFavorite}
+            actionName={actionName}
+            onAction={onToggleFavorite}
             />
             </div>
           )

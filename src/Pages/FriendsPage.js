@@ -26,9 +26,19 @@ const FriendsPage = () => {
         <h1>Frainds tracker</h1>
         <WelcomeMessage name={myProfileData.name}/>
         <h2 className={style.contentHeading}>My Best Friends</h2>
-        <PeopleList people={fevList.map((id)=>fraindsData.find(friend => friend.id === id))} onClickPerson={goToPersonDetail} onToggleFavorite={SetBestFriend}/>
+        <PeopleList 
+            people={fevList.map((id)=>fraindsData.find(friend => friend.id === id))} 
+            onClickPerson={goToPersonDetail} 
+            onToggleFavorite={SetBestFriend} 
+            actionName="Remove from Favorites"
+        />
         <h2 className={style.contentHeading}>My Friends</h2>
-        <PeopleList people={fraindsData.filter((friend)=>!fevList.includes(friend.id))} onClickPerson={goToPersonDetail} onToggleFavorite={SetBestFriend}/>
+        <PeopleList 
+            people={fraindsData.filter((friend)=>!fevList.includes(friend.id))} 
+            onClickPerson={goToPersonDetail} 
+            onToggleFavorite={SetBestFriend} 
+            actionName="Add to Favorites"
+        />
         </>
     )
 
