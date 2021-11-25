@@ -18,7 +18,7 @@ export  const App = () =>  {
         <Route path="/" element={<div className={style.contentContainer}><FriendsPage/></div>}/>
         <Route path="/userProfile" element={<div className={style.contentContainer}><UserProfilePage/></div>}/>
         <Route path="/friendDetails/:id" element={<div className={style.contentContainer}><FriendDetailPage/></div>}/>
-        <Route path="/new-friend" element={<NewFriendPage/>} />
+        <Route path="/new-friend" element={<div className={style.contentContainer}><NewFriendPage/></div>} />
       </Routes>
     </FavoritesProvider>
     </BrowserRouter>

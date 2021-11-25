@@ -21,3 +21,12 @@ button{
   font-weight: bold;
   padding: 16px;
 }
+
+input, textarea {
+  border: 1px solid #777;
+  border-radius: 8px;
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  padding: 16px;
+}
