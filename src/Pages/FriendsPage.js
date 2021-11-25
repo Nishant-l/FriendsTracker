@@ -3,12 +3,12 @@ import { myProfileData,fraindsData } from '../data';
 import { PeopleList } from '../components/PeopleList';
 import style from './friendPage.module.css'
 import {useNavigate} from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { FavoritesContext } from '../contexts/FavoritesContext';
 
-const FriendsPage = ({
-    fevList,
-    SetBestFriend
-}) => {
+const FriendsPage = () => {
+
+    const {favoritesIds,SetBestFriend} = useContext(FavoritesContext);
     
     const navigate = useNavigate();
     
@@ -22,14 +22,14 @@ const FriendsPage = ({
         <WelcomeMessage name={myProfileData.name}/>
         <h2 className={style.contentHeading}>My Best Friends</h2>
         <PeopleList 
-            people={fevList.map((id)=>fraindsData.find(friend => friend.id === id))} 
+            people={favoritesIds.map((id)=>fraindsData.find(friend => friend.id === id))} 
             onClickPerson={goToPersonDetail} 
             onToggleFavorite={SetBestFriend} 
             actionName="Remove from Favorites"
         />
         <h2 className={style.contentHeading}>My Friends</h2>
         <PeopleList 
-            people={fraindsData.filter((friend)=>!fevList.includes(friend.id))} 
+            people={fraindsData.filter((friend)=>!favoritesIds.includes(friend.id))} 
             onClickPerson={goToPersonDetail} 
             onToggleFavorite={SetBestFriend} 
             actionName="Add to Favorites"
@@ -37,11 +37,6 @@ const FriendsPage = ({
         </>
     )
 
-}
-
-FriendsPage.propTypes = {
-    fevList: PropTypes.arrayOf(PropTypes.number),
-    SetBestFriend: PropTypes.func.isRequired
 }
 
 export {FriendsPage}

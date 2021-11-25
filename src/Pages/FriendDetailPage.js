@@ -1,15 +1,14 @@
 import {ProfileInfo} from '../components/ProfileInfo';
 import {fraindsData} from '../data';
 import { Link, useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { FavoritesContext } from '../contexts/FavoritesContext';
 
-const FriendDetailPage = ({
-    fevList=[],
-    SetBestFriend
-}) => {
+const FriendDetailPage = () => {
+    const {favoritesIds,SetBestFriend} = useContext(FavoritesContext);
     const {id} = useParams();
     const selectedFriend = fraindsData.find(f => f.id.toString() === id);
-    const isBestFriend = fevList.includes(selectedFriend.id);
+    const isBestFriend = favoritesIds.includes(selectedFriend.id);
     return(
         selectedFriend?
         <ProfileInfo 
@@ -24,11 +23,6 @@ const FriendDetailPage = ({
             </Link>
         </>)
     )
-}
-
-FriendDetailPage.propTypes = {
-    fevList: PropTypes.arrayOf(PropTypes.number),
-    SetBestFriend: PropTypes.func.isRequired
 }
 
 export {FriendDetailPage}

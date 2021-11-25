@@ -6,7 +6,8 @@ import { FriendsPage } from './Pages/FriendsPage';
 import { UserProfilePage } from './Pages/UserProfilePage';
 import { NavBar } from './components/NavBar';
 import { useState } from 'react';
-
+// importing contextex
+import {FavoritesContext} from './contexts/FavoritesContext';
 
 export  const App = () =>  {
 
@@ -22,11 +23,13 @@ export  const App = () =>  {
   return(
     <BrowserRouter>
       <NavBar/>
+      <FavoritesContext.Provider value={{favoritesIds:fevList,SetBestFriend}}>
       <Routes>
-        <Route path="/" element={<div className={style.contentContainer}><FriendsPage fevList={fevList} SetBestFriend={SetBestFriend}/></div>}/>
+        <Route path="/" element={<div className={style.contentContainer}><FriendsPage/></div>}/>
         <Route path="/userProfile" element={<div className={style.contentContainer}><UserProfilePage/></div>}/>
-        <Route path="/friendDetails/:id" element={<div className={style.contentContainer}><FriendDetailPage fevList={fevList} SetBestFriend={SetBestFriend}/></div>}/>
+        <Route path="/friendDetails/:id" element={<div className={style.contentContainer}><FriendDetailPage/></div>}/>
       </Routes>
+      </FavoritesContext.Provider>
     </BrowserRouter>
   );
 }
