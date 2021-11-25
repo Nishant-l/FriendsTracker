@@ -1,12 +1,16 @@
 import style from './peopleList.module.css';
 import { PersonCard } from './PersonCard';
 import PropTypes from 'prop-types'
+import { NewFriendCard } from './NewFraindCard';
+import {useNavigate} from 'react-router-dom';
 const PeopleList = ({
     people,
     onClickPerson,
     actionName,
-    onToggleFavorite
+    onToggleFavorite,
+    allowAddation
 }) =>{
+    const navigate = useNavigate();
     return(
         <div className={style.peopleList}>
         {people.map((person)=>
@@ -20,6 +24,9 @@ const PeopleList = ({
             </div>
           )
         )}
+        {allowAddation && <div className={style.peopleListItem}>
+        <NewFriendCard onClick={() => navigate('/new-friend')}/>
+        </div>}
       </div>
     )
     
@@ -36,7 +43,8 @@ PeopleList.propTypes = {
     ).isRequired,
     onClickPerson: PropTypes.func.isRequired,
     actionName: PropTypes.string,
-    onToggleFavorite: PropTypes.func
+    onToggleFavorite: PropTypes.func,
+    allowAddation:PropTypes.bool
 }
 
 export {PeopleList}

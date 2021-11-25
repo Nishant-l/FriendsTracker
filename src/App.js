@@ -6,6 +6,7 @@ import { FriendsPage } from './Pages/FriendsPage';
 import { UserProfilePage } from './Pages/UserProfilePage';
 import { NavBar } from './components/NavBar';
 import { FavoritesProvider } from './components/FevoritesProvider';
+import { NewFriendPage } from './Pages/NewFraiendPage';
 
 export  const App = () =>  {
 
@@ -17,6 +18,7 @@ export  const App = () =>  {
         <Route path="/" element={<div className={style.contentContainer}><FriendsPage/></div>}/>
         <Route path="/userProfile" element={<div className={style.contentContainer}><UserProfilePage/></div>}/>
         <Route path="/friendDetails/:id" element={<div className={style.contentContainer}><FriendDetailPage/></div>}/>
+        <Route path="/new-friend" element={<NewFriendPage/>} />
       </Routes>
     </FavoritesProvider>
     </BrowserRouter>

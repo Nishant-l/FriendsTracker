@@ -33,6 +33,7 @@ const FriendsPage = () => {
             onClickPerson={goToPersonDetail} 
             onToggleFavorite={SetBestFriend} 
             actionName="Add to Favorites"
+            allowAddation
         />
         </>
     )
